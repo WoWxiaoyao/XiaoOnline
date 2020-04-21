@@ -44,8 +44,16 @@ public class PluginUtil
     {
         try
         {
+            Main.getInstance().getServer().getScheduler().cancelTask(Main.getInstance());
             FileUtil.LoadFile();
             RewardUtil.load();
+            TaskUtil.run();
+
+            if(FileUtil.config.getBoolean("AutoSave.Enable"))
+            {
+                TaskUtil.save(FileUtil.config.getInt("AutoSave.Time"));
+                PrintUtil.PrintConsole("&a&l√ &a启用定时保存功能. &e间隔:&d"+FileUtil.config.getInt("AutoSave.Time"));
+            }
             PrintUtil.PrintCommandSender(sender, Lang.SuccessReload);
         }
         catch (Exception e)
