@@ -1,5 +1,6 @@
 package zbv5.cn.XiaoOnline.store;
 
+import com.google.common.base.Joiner;
 import zbv5.cn.XiaoOnline.util.DataUtil;
 import zbv5.cn.XiaoOnline.util.DateUtil;
 import zbv5.cn.XiaoOnline.util.FileUtil;
@@ -40,6 +41,26 @@ public class Yml
             e.printStackTrace();
         }
     }
+    public static String getOfflinePlayerData(String PlayerName)
+    {
+        if(!FileUtil.data.getSections().containsKey(PlayerName))
+        {
+            return "null";
+        } else {
+            if(DateUtil.getDate("yyyy-MM-dd").equals(FileUtil.data.getString(PlayerName+".date")))
+            {
+                if(FileUtil.data.getStringList(PlayerName+".rewards").isEmpty())
+                {
+                    return String.valueOf(FileUtil.data.getInt(PlayerName+".data"));
+                } else {
+                    return FileUtil.data.getInt(PlayerName+".data")+"/"+Joiner.on(",").join(FileUtil.data.getStringList(PlayerName+".rewards"));
+                }
+            } else {
+                return "none";
+            }
+        }
+    }
+
     private static void build(String PlayerName)
     {
         try

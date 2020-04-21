@@ -29,4 +29,22 @@ public class TaskUtil
             }
         }, 20, true);
     }
+
+    //用于自动保存
+    public static void save(int s)
+    {
+        Main.getInstance().getServer().getScheduler().scheduleRepeatingTask(Main.getInstance(), new Runnable()
+        {
+            public void run()
+            {
+                if(!Main.getInstance().getServer().getOnlinePlayers().isEmpty())
+                {
+                    for(Player p:Main.getInstance().getServer().getOnlinePlayers().values())
+                    {
+                        DataUtil.refresh(p.getName());
+                    }
+                }
+            }
+        }, s*20, true);
+    }
 }

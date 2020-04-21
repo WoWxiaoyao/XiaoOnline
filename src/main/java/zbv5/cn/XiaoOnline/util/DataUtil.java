@@ -1,5 +1,7 @@
 package zbv5.cn.XiaoOnline.util;
 
+import com.google.common.base.Joiner;
+import zbv5.cn.XiaoOnline.store.Mysql;
 import zbv5.cn.XiaoOnline.store.Yml;
 
 import java.util.ArrayList;
@@ -20,10 +22,18 @@ public class DataUtil
     {
         if(useSql)
         {
-            //预留后期Mysql
-            //Mysql.getPlayerData(PlayerName);
+            Mysql.getPlayerData(PlayerName);
         } else {
             Yml.getPlayerData(PlayerName);
+        }
+    }
+    public static String loadOffline(String PlayerName)
+    {
+        if(useSql)
+        {
+            return Mysql.getOfflinePlayerData(PlayerName);
+        } else {
+            return Yml.getOfflinePlayerData(PlayerName);
         }
     }
 
@@ -31,8 +41,7 @@ public class DataUtil
     {
         if(useSql)
         {
-            //预留后期Mysql
-            //Mysql.writePlayerData(PlayerName,getTodayTime(PlayerName),getRewards(PlayerName));
+            Mysql.writePlayerData(PlayerName,getTodayTime(PlayerName),getRewards(PlayerName));
         } else {
             Yml.writePlayerData(PlayerName,getTodayTime(PlayerName),getRewards(PlayerName));
         }
@@ -54,13 +63,8 @@ public class DataUtil
 
     public static void refresh(String PlayerName)
     {
-        if(useSql)
-        {
-            //预留后期Mysql
-            //Mysql.writePlayerData(PlayerName,getTodayTime(PlayerName),getRewards(PlayerName));
-        } else {
-            Yml.getPlayerData(PlayerName);
-        }
+        close(PlayerName);
+        load(PlayerName);
     }
 
     public static void put(String PlayerName,int Data,List<String> Reward)

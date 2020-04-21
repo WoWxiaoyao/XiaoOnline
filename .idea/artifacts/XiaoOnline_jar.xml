@@ -4,6 +4,7 @@
     <root id="archive" name="XiaoOnline.jar">
       <element id="module-output" name="XiaoOnline" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../json-20190722.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../mysql-connector-java-5.1.39-bin (1).jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

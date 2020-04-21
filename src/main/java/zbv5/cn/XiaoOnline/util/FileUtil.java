@@ -24,6 +24,8 @@ public class FileUtil
             }
             config = new Config(new File(Main.getInstance().getDataFolder() + "/config.yml"));
 
+            update();
+
             File Lang_Yml = new File(Main.getInstance().getDataFolder(), "lang.yml");
             if (!Lang_Yml.exists())
             {
@@ -53,6 +55,26 @@ public class FileUtil
         {
             PrintUtil.PrintConsole("&c&l× &4加载配置文件出现问题,请检查服务器.");
             e.printStackTrace();
+        }
+    }
+
+    public static void update()
+    {
+        if(config.getString("version").equals("1.0.0"))
+        {
+            try
+            {
+                File Config_Yml = new File(Main.getInstance().getDataFolder(), "config.yml");
+                Config_Yml.delete();
+                Main.getInstance().saveResource("config.yml", false);
+                config = new Config(new File(Main.getInstance().getDataFolder() + "/config.yml"));
+                PrintUtil.PrintConsole("&a&l√ &a配置文件config.yml升级至1.1.0.");
+            }
+            catch (Exception e)
+            {
+                PrintUtil.PrintConsole("&c&l× &4操作配置文件升级过程中出现问题.");
+                e.printStackTrace();
+            }
         }
     }
 }

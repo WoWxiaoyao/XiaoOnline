@@ -1,8 +1,8 @@
 name: XiaoOnline
 main: zbv5.cn.XiaoOnline.Main
-version: 1.0.0
+version: 1.1.0
 api: 1.0.0
-author: 逍遥
+author: WxiaoyaoW
 permissions:
   XiaoOnline.command:
     description: 使用默认指令所需权限
