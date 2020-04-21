@@ -1,0 +1,18 @@
+name: XiaoOnline
+main: zbv5.cn.XiaoOnline.Main
+version: 1.0.0
+api: 1.0.0
+author: 逍遥
+permissions:
+  XiaoOnline.command:
+    description: 使用默认指令所需权限
+    default: true
+  XiaoOnline.open:
+    description: 使用指令打开在线奖励领取页面
+    default: true
+  XiaoOnline.reload:
+    description: 使用指令重载插件
+    default: op
+  XiaoOnline.admin:
+    description: 全权限
+    default: op

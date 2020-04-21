@@ -1,0 +1,9 @@
+version: 1.0.0
+
+#数据库配置 1.0.0暂时不支持mysql
+Mysql:
+  Use: false
+  Url: "jdbc:mysql://127.0.0.1:3306/db?useUnicode=yes&characterEncoding=UTF-8&useSSL=false"
+  User: "root"
+  PassWord: "root"
+  Table: "xiaoonline"

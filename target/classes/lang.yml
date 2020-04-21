@@ -1,0 +1,21 @@
+Prefix: "&6[&bXiaoOnline&6]"
+NoPermission: "{prefix}&c你没有权限这样做"
+NullPlayer: "{prefix}&c玩家&3{player}&c不在线"
+SuccessReload: "{prefix}&a重载完成!"
+FailReload: "{prefix}&c重载失败!请前往控制台查看报错."
+NullCommand: "{prefix}&c未知指令."
+NullReward: "{prefix}&c服务器设定奖励异常,请联系管理处理."
+NeedPlayer: "{prefix}&&c只有玩家才能执行该操作."
+Show:
+- "&e玩家:&3{player}"
+- "&6今日在线时间:&a{time}"
+ShowNull:
+- "&c当前服务器没有可领取的在线奖励"
+Status_Already: "&7(&4已领取&7)"
+Status_Can: "&7(&6可领取&7)"
+Status_TimeInsufficient: "&7(&3时间不足&7)"
+
+Reward_Already: "{prefix}&c你已经领取过该奖励了,请明天再来吧."
+Reward_TimeInsufficient: "{prefix}&c今日在线时间不足,请稍后再来."
+NewDay: "{prefix}&a新的一天到来了，数据已重置."
+version: 1.0.0
